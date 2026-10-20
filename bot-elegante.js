@@ -406,4 +406,13 @@ client.on(Events.InteractionCreate, async (i) => {
   }
 });
 
+// ═══════════════════════════════════════════════════════════
+//  SERVIDOR HTTP (para que Render detecte un puerto abierto)
+// ═══════════════════════════════════════════════════════════
+
+const http = require("http");
+http
+  .createServer((req, res) => res.end("Bot activo"))
+  .listen(process.env.PORT || 3000, () => console.log("🌐 Servidor HTTP activo"));
+
 client.login(TOKEN);
